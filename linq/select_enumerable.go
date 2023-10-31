@@ -18,7 +18,7 @@ func (e SelectEnumerable[S, T]) Take(size int) SelectEnumerable[S, T] {
 	return AsSelectEnumerable[S, T](Take(e.values, size))
 }
 
-func (e SelectEnumerable[S, T]) Sort(less func(a, b S) bool) SelectEnumerable[S, T] {
+func (e SelectEnumerable[S, T]) Sort(less func(a, b S) int) SelectEnumerable[S, T] {
 	slices.SortFunc(e.values, less)
 	return e
 }

@@ -39,7 +39,7 @@ func (e ComparableEnumerable[E]) Take(size int) ComparableEnumerable[E] {
 	return AsComparableEnumerable(e.Enumerable.Take(size).values)
 }
 
-func (e ComparableEnumerable[E]) SortFunc(less func(a, b E) bool) ComparableEnumerable[E] {
+func (e ComparableEnumerable[E]) SortFunc(less func(a, b E) int) ComparableEnumerable[E] {
 	slices.SortFunc(e.values, less)
 	return e
 }

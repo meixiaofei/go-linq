@@ -2,8 +2,9 @@ package demo
 
 import (
 	"fmt"
-	"go-linq/linq"
+	"github.com/meixiaofei/go-linq/linq"
 	"strconv"
+	"strings"
 	"testing"
 )
 
@@ -11,7 +12,7 @@ func init() {
 	s1 := linq.AsEnumerable([]string{"d", "a", "b", "c", "a"}).
 		Where(func(s string) bool { return s != "b" }).
 		Select(func(s string) string { return "class_" + s }).
-		Sort(func(s1, s2 string) bool { return s1 < s2 }).
+		Sort(func(s1, s2 string) int { return strings.Compare(s1, s2) }).
 		ToSlice()
 	fmt.Println(s1)
 

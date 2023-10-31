@@ -2,7 +2,7 @@ package demo
 
 import (
 	"fmt"
-	"go-linq/linq"
+	"github.com/meixiaofei/go-linq/linq"
 	"reflect"
 	"testing"
 )

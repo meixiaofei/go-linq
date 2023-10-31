@@ -54,7 +54,7 @@ func (e Enumerable[E]) Count() int {
 	return len(e.values)
 }
 
-//First 获取第一个匹配的结果
+// First 获取第一个匹配的结果
 func (e Enumerable[E]) First(predicates ...func(E) bool) (elem E) {
 	if len(e.values) == 0 {
 		return elem
@@ -81,7 +81,7 @@ func (e Enumerable[E]) Select(mapper func(E) E) Enumerable[E] {
 	return AsEnumerable(Select(e.values, mapper))
 }
 
-func (e Enumerable[E]) Sort(less func(a, b E) bool) Enumerable[E] {
+func (e Enumerable[E]) Sort(less func(a, b E) int) Enumerable[E] {
 	slices.SortFunc(e.values, less)
 	return e
 }
